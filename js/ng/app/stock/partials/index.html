@@ -1,0 +1,236 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Stock Out
+	</div>
+	<div class="panel-body">
+		<button class="btn btn-success" data-ng-click="save();">
+			<i class="glyphicon glyphicon-floppy-saved"></i>
+			Save
+		</button>
+		<h3>Bootstrap theme</h3>
+		<p>Selected: {{address.selected.name}}</p>
+		<ui-select ng-model="address.selected"
+				   theme="selectize"
+				   ng-disabled="disabled"
+				   reset-search-input="false"
+				   style="width: 300px;">
+			<ui-select-match placeholder="Enter an address...">{{$select.selected.name}}</ui-select-match>
+			<ui-select-choices repeat="address in testNew.elements track by $index"
+							   refresh="refreshAddresses($select.search)"
+							   refresh-delay="0">
+				<div ng-bind-html="address.name | highlight: $select.search"></div>
+			</ui-select-choices>
+		</ui-select>
+		<div data-ng-repeat="s in staffs.elements">
+			{{s.name}}
+		</div>
+		<h3>Selectize theme</h3>
+		<p>Selected: {{staff.selected}}</p>
+		<hr>
+		<input type="hidden" id="sel">
+		<table class="table table-bordered">
+			<tr>
+				<td>
+					Requested By:
+				</td>
+				<td>
+					<ui-select ng-model="staff.selected" theme="selectize" ng-disabled="disabled" style="width: 300px;">
+						<ui-select-match placeholder="Select or search a staff in the list...">{{$select.selected
+							.name}}</ui-select-match>
+						<ui-select-choices repeat="staff in staffs.elements | filter: $select.search">
+							<span ng-bind-html="staff.name | highlight: $select.search"></span>
+						</ui-select-choices>
+					</ui-select>
+				</td>
+				<td>
+					Approved By:
+				</td>
+				<td>
+					<ui-select ng-model="staff.selected" theme="selectize" ng-disabled="disabled" style="width: 300px;">
+						<ui-select-match placeholder="Select or search a staff in the list...">
+							{{$select.selected.name}}
+						</ui-select-match>
+						<ui-select-choices repeat="staff in staffs.elements | filter: $select.search">
+							<span ng-bind-html="staff.name | highlight: $select.search"></span>
+						</ui-select-choices>
+					</ui-select>
+				</td>
+				<td>
+					Date:
+				</td>
+				<td>
+					<input
+						type="text"
+						id="jQueryDatePicker"
+						class="form-control"
+						required
+						placeholder="Date"
+						data-ng-model="date"
+					/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Delivery To:
+				</td>
+				<td>
+					<input
+						type="text"
+						class="form-control"
+						required
+						data-ng-model="delivery_to"
+						placeholder="Delivery To"
+					/>
+				</td>
+				<td>
+					Note:
+				</td>
+				<td colspan="3">
+					<textarea
+						placeholder="Note"
+						data-ng-model="note"
+						class="form-control"
+					>
+					</textarea>
+				</td>
+			</tr>
+		</table>
+		<h4>Product:</h4>
+		<table class="table">
+			<tr>
+				<td>
+					<ui-select
+						ng-model="product.selected"
+						theme="selectize"
+						ng-disabled="disabled"
+						style="width: 300px;"
+					>
+						<ui-select-match placeholder="Select or search a product in the list...">
+							{{$select.selected.productname}}
+						</ui-select-match>
+						<ui-select-choices repeat="product in products.elements | filter: $select.search">
+							<span ng-bind-html="product.productname | highlight: $select.search"></span>
+						</ui-select-choices>
+					</ui-select>
+				</td>
+				<td>
+					<input
+						type="text"
+						placeholder="Product ID"
+						id="pId"
+						data-ng-model="pId"
+						disabled
+						class="form-control"
+					/>
+				</td>
+				<td>
+					<input type="text" placeholder="Memo" id="description" class="form-control"/>
+				</td>
+				<td>
+					<input
+						type="text"
+						placeholder="Qty"
+						only-numbers
+						ng-change="calculate();"
+						id="qty"
+						data-ng-model="qty"
+						class="form-control"/>
+				</td>
+				<td>
+					<input type="text" placeholder="Price" only-numbers ng-change="calculate();" data-ng-model="price" id="price" class="form-control"/>
+				</td>
+				<td>
+					<input type="text" placeholder="Total" data-ng-model="total" disabled id="total" class="form-control"/>
+				</td>
+				<td>
+					<button
+						class="btn btn-primary"
+						data-ng-click="add();"
+					>
+						<i class="glyphicon glyphicon-plus"></i>
+						Add
+					</button>
+				</td>
+			</tr>
+		</table>
+		<div class="scroll">
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th>
+						No
+					</th>
+					<th>
+						Product Name
+					</th>
+					<th>
+						Memo
+					</th>
+					<th>
+						Qty
+					</th>
+					<th>
+						Price
+					</th>
+					<th>
+						Total
+					</th>
+					<th width="160px">
+						Action
+					</th>
+				</tr>
+				<tr data-ng-repeat="list in listData">
+					<td>
+						{{$index + 1}}
+					</td>
+					<td>
+						{{list.p_name}}
+					</td>
+					<td>
+						{{list.desciption}}
+					</td>
+					<td>
+						{{list.qty}}
+					</td>
+					<td>
+						{{list.price}}
+					</td>
+					<td>
+						{{list.price * list.qty | currency}}
+						<!--{{list.total}}-->
+					</td>
+					<td>
+						<button class="btn btn-default" data-ng-click="edit(list);">Edit</button>
+						<button class="btn btn-danger" data-ng-click="remove($index);">Remove</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<table class="table">
+			<tr valign="right">
+				<td width="80%" align="right">
+					Grand Total:
+				</td>
+				<td>
+					<input class="form-control" disabled data-ng-model="sub_total"/>
+				</td>
+			</tr>
+			<tr>
+				<td width="80%" align="right">
+					Payment:
+				</td>
+				<td>
+					<input class="form-control" data-ng-change="input();" only-numbers data-ng-model="input_money">
+				</td>
+			</tr>
+			<tr>
+				<td width="80%" align="right">
+					Remaining:
+				</td>
+				<td>
+					<input class="form-control" disabled data-ng-model="remaining">
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<pop-up></pop-up>
