@@ -43,8 +43,10 @@
 <script src="js/ng/app/core/directive/number.js"></script>
 <script src="js/ng/app/core/services/services.js"></script>
 <script src="js/ng/app/account/controller/manage_ctrl.js"></script>
-<!-- index controller -->
+<!-- index controllers -->
 <script src="js/ng/app/index/controller/index_ctrl.js"></script>
+<!--  user controllers  -->
+<script src="js/ng/app/user/controllers/user_ctrl.js"></script>
 
 </body>
 

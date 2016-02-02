@@ -22,73 +22,24 @@
 
     tep_redirect(tep_href_link(FILENAME_COOKIE_USAGE));
   }
-
-// login content module must return $login_customer_id as an integer after successful customer authentication
-  $login_customer_id = false;
-
-  $page_content = $oscTemplate->getContent('login');
-
-  if ( is_int($login_customer_id) && ($login_customer_id > 0) ) {
-    if (SESSION_RECREATE == 'True') {
-      tep_session_recreate();
+if (isset($HTTP_GET_VARS['action']) && ($HTTP_GET_VARS['action'] == 'process')) {
+    $username = tep_db_prepare_input($HTTP_POST_VARS['email_address']);
+    $password = tep_db_prepare_input($HTTP_POST_VARS['password']);
+    $check_query = tep_db_query("select id, user_name,user_password from " . TABLE_ADMINISTRATORS . " where user_name = '" . tep_db_input($username) . "'");
+    if (tep_db_num_rows($check_query) == 1) {
+        $check = tep_db_fetch_array($check_query);
+        if (tep_validate_password($password, $check['user_password'])) {
+            $user_name = $check['user_name'];
+            $id = $check['id'];
+            tep_session_register('user_name');
+            tep_session_register('id');
+            tep_session_register('admin');
+            tep_redirect(tep_href_link(FILENAME_DEFAULT));
+        }
+    }else {
+        $messageStack->add('login', 'Error: Invalid administrator login attempt.');
     }
-
-    $customer_info_query = tep_db_query("
-      select
-          c.customers_firstname, c.user_name, c.customers_lastname,
-          c.customers_default_address_id, ab.entry_country_id,
-          ab.entry_zone_id, c.customers_email_address
-      from
-          " . TABLE_CUSTOMERS . "
-            c left join
-          " . TABLE_ADDRESS_BOOK . " ab
-            on
-          (c.customers_id = ab.customers_id and c.customers_default_address_id = ab.address_book_id)
-      where
-          c.customers_id = '" . (int)$login_customer_id . "'");
-    $customer_info = tep_db_fetch_array($customer_info_query);
-
-    $customer_id = $login_customer_id;
-    tep_session_register('customer_id');
-
-    $user_name = $customer_info['user_name'];
-    tep_session_register('user_name');
-
-      $customer_email = $customer_info['customers_email_address'];
-      tep_session_register('customer_email');
-
-    $customer_default_address_id = $customer_info['customers_default_address_id'];
-    tep_session_register('customer_default_address_id');
-
-    $customer_first_name = $customer_info['customers_firstname'];
-    tep_session_register('customer_first_name');
-
-    $customer_last_name = $customer_info['customers_lastname'];
-    tep_session_register('customer_last_name');
-
-    $customer_country_id = $customer_info['entry_country_id'];
-    tep_session_register('customer_country_id');
-
-    $customer_zone_id = $customer_info['entry_zone_id'];
-    tep_session_register('customer_zone_id');
-
-    tep_db_query("update " . TABLE_CUSTOMERS_INFO . " set customers_info_date_of_last_logon = now(), customers_info_number_of_logons = customers_info_number_of_logons+1, password_reset_key = null, password_reset_date = null where customers_info_id = '" . (int)$customer_id . "'");
-
-// reset session token
-    $sessiontoken = md5(tep_rand() . tep_rand() . tep_rand() . tep_rand());
-
-// restore cart contents
-    $cart->restore_contents();
-
-    if (sizeof($navigation->snapshot) > 0) {
-      $origin_href = tep_href_link($navigation->snapshot['page'], tep_array_to_string($navigation->snapshot['get'], array(tep_session_name())), $navigation->snapshot['mode']);
-      $navigation->clear_snapshot();
-      tep_redirect($origin_href);
-    }
-
-    tep_redirect(tep_href_link(FILENAME_DEFAULT));
-  }
-
+}
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_LOGIN);
 
   $breadcrumb->add(NAVBAR_TITLE, tep_href_link(FILENAME_LOGIN, '', 'SSL'));

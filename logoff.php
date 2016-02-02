@@ -16,14 +16,9 @@
 
   $breadcrumb->add(NAVBAR_TITLE);
 
-  tep_session_unregister('customer_id');
+  tep_session_unregister('id');
   tep_session_unregister('user_name');
-  tep_session_unregister('customer_email');
-  tep_session_unregister('customer_default_address_id');
-  tep_session_unregister('customer_first_name');
-  tep_session_unregister('customer_last_name');
-  tep_session_unregister('customer_country_id');
-  tep_session_unregister('customer_zone_id');
+  tep_session_unregister('admin');
 if ( tep_session_is_registered('sendto') ) {
   tep_session_unregister('sendto');
 }

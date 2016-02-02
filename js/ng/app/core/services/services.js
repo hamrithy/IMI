@@ -5,8 +5,13 @@ app.service("Services", [
             var self = this;
         };
 
-        services.prototype.todo = function(){
-            //@todo
+        services.prototype.alertMessage = function(title, message, type){
+            $.notify({
+                title: title,
+                message: message
+            },{
+                type: type
+            });
         };
 
         return services;

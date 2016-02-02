@@ -2,22 +2,6 @@ app.config([
 	'$stateProvider',
 	'$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider) {
-		// remember mentioned function for later use
-		app.registerCtrl = $urlRouterProvider.register;
-		app.resolveScriptDeps = function(dependencies){
-			return function($q,$rootScope){
-				var deferred = $q.defer();
-				$script(dependencies, function() {
-					// all dependencies have now been loaded by $script.js so resolve the promise
-					$rootScope.$apply(function()
-					{
-						deferred.resolve();
-					});
-				});
-
-				return deferred.promise;
-			}
-		};
 		$stateProvider.
 			state('/', {
 				url: '/',
@@ -34,9 +18,12 @@ app.config([
 				templateUrl: 'js/ng/app/account/partials/manage.html',
 				controller: 'manage_ctrl'
 			})
+			.state('/user', {
+				url: '/user',
+				templateUrl: 'js/ng/app/user/views/index.html',
+				controller: 'user_ctrl'
+			})
 		;
 		$urlRouterProvider.otherwise('/');
 	}
 ]);
-
-app.controller('LargeAppController',function(){});
