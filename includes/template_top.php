@@ -26,7 +26,7 @@ if (!tep_session_is_registered('customer_id')) {
     <link rel="stylesheet" type="text/css" href="css/lib_template/select.css">
     <link rel="stylesheet" type="text/css" href="css/lib_template/flat-blue.css">
     <link rel="stylesheet" type="text/css" href="css/lib_template/select2.min.css">
-    <link rel="stylesheet" href="css/lib_template/selectize.default.css">
+    <link rel="stylesheet" type="text/css" href="css/lib_template/selectize.default.css">
 </head>
 <body class="flat-blue">
 <div class="app-container">
@@ -131,7 +131,7 @@ if (!tep_session_is_registered('customer_id')) {
                     <div class="navbar-header">
                         <a class="navbar-brand" href="#">
                             <div class="icon fa fa-paper-plane"></div>
-                            <div class="title">Flat Admin V.2</div>
+                            <div class="title">IMI Admin</div>
                         </a>
                         <button type="button" class="navbar-expand-toggle pull-right visible-xs">
                             <i class="fa fa-times icon"></i>
@@ -139,70 +139,54 @@ if (!tep_session_is_registered('customer_id')) {
                     </div>
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="index.php">
+                            <a href="#">
                                 <span class="icon fa fa-tachometer"></span><span class="title">Dashboard</span>
                             </a>
                         </li>
                         <li class="panel panel-default dropdown">
                             <a data-toggle="collapse" href="#dropdown-element">
-                                <span class="icon fa fa-desktop"></span><span class="title">UI Kits</span>
+                                <span class="icon fa fa-desktop"></span><span class="title">Customers</span>
                             </a>
                             <!-- Dropdown level 1 -->
                             <div id="dropdown-element" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="login.php">Login</a>
-                                        </li>
-                                        <li><a href="ui-kits/grid.html">Grid</a>
-                                        </li>
-                                        <li><a href="ui-kits/button.html">Buttons</a>
-                                        </li>
-                                        <li><a href="ui-kits/card.html">Cards</a>
-                                        </li>
-                                        <li><a href="ui-kits/list.html">Lists</a>
-                                        </li>
-                                        <li><a href="ui-kits/modal.html">Modals</a>
-                                        </li>
-                                        <li><a href="ui-kits/alert.html">Alerts & Toasts</a>
-                                        </li>
-                                        <li><a href="ui-kits/panel.html">Panels</a>
-                                        </li>
-                                        <li><a href="ui-kits/loader.html">Loaders</a>
-                                        </li>
-                                        <li><a href="ui-kits/step.html">Tabs & Steps</a>
-                                        </li>
-                                        <li><a href="ui-kits/other.html">Other</a>
-                                        </li>
+                                        <li><a href="#/customer_type">Customer Type</a></li>
+                                        <li><a href="#/customer_list">Customer List</a></li>
+                                        <li><a href="#/create_invoice">Create Invoice</a></li>
+                                        <li><a href="#/received_payment">Received Payment</a></li>
+                                        <li><a href="#/sale_enter_sell_receive">Sale Enter Sell Receive</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
                         <li class="panel panel-default dropdown">
                             <a data-toggle="collapse" href="#dropdown-table">
-                                <span class="icon fa fa-table"></span><span class="title">Table</span>
+                                <span class="icon fa fa-table"></span><span class="title">Staff</span>
                             </a>
                             <!-- Dropdown level 1 -->
                             <div id="dropdown-table" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="table/table.html">Table</a>
-                                        </li>
-                                        <li><a href="table/datatable.html">Datatable</a>
-                                        </li>
+                                        <li><a href="#/staff_type">Staff Type</a></li>
+                                        <li><a href="#/staff_list">Staff List</a></li>
+                                        <li><a href="#/staff_payroll">Staff Payroll</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
                         <li class="panel panel-default dropdown">
                             <a data-toggle="collapse" href="#dropdown-form">
-                                <span class="icon fa fa-file-text-o"></span><span class="title">Form</span>
+                                <span class="icon fa fa-file-text-o"></span><span class="title">Supplier</span>
                             </a>
                             <!-- Dropdown level 1 -->
                             <div id="dropdown-form" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="form/ui-kits.html">Form UI Kits</a>
-                                        </li>
+                                        <li><a href="#/supplier">Supplier List</a></li>
+                                        <li><a href="#/enter_bill">Enter Bill</a></li>
+                                        <li><a href="#/pay_bill">Pay Bill</a></li>
+                                        <li><a href="#/bill_by_cash">Bill By Cash</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -210,16 +194,14 @@ if (!tep_session_is_registered('customer_id')) {
                         <!-- Dropdown-->
                         <li class="panel panel-default dropdown">
                             <a data-toggle="collapse" href="#component-example">
-                                <span class="icon fa fa-cubes"></span><span class="title">Components</span>
+                                <span class="icon fa fa-cubes"></span><span class="title">Stock</span>
                             </a>
                             <!-- Dropdown level 1 -->
                             <div id="component-example" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="components/pricing-table.html">Pricing Table</a>
-                                        </li>
-                                        <li><a href="components/chartjs.html">Chart.JS</a>
-                                        </li>
+                                        <li><a href="#/stock_type">Stock Type</a></li>
+                                        <li><a href="#/stock_list">Stock List</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -227,16 +209,20 @@ if (!tep_session_is_registered('customer_id')) {
                         <!-- Dropdown-->
                         <li class="panel panel-default dropdown">
                             <a data-toggle="collapse" href="#dropdown-example">
-                                <span class="icon fa fa-slack"></span><span class="title">Page Example</span>
+                                <span class="icon fa fa-slack"></span><span class="title">Report</span>
                             </a>
                             <!-- Dropdown level 1 -->
                             <div id="dropdown-example" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="pages/login.html">Login</a>
-                                        </li>
-                                        <li><a href="pages/index.html">Landing Page</a>
-                                        </li>
+                                        <li><a href="#/cash_flow">Cash Flow</a></li>
+                                        <li><a href="#/income_statement">Income Statement</a></li>
+                                        <li><a href="#/balance_sheet">Balance Sheet</a></li>
+                                        <li><a href="#/stock_report">Stock Report</a></li>
+                                        <li><a href="#/staff_report">Staff Report</a></li>
+                                        <li><a href="#/sale_report">Sale Report</a></li>
+                                        <li><a href="#/account_payable">Account Payable</a></li>
+                                        <li><a href="#/account_receivable">Account Receivable</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -244,22 +230,26 @@ if (!tep_session_is_registered('customer_id')) {
                         <!-- Dropdown-->
                         <li class="panel panel-default dropdown">
                             <a data-toggle="collapse" href="#dropdown-icon">
-                                <span class="icon fa fa-archive"></span><span class="title">Icons</span>
+                                <span class="icon fa fa-archive"></span><span class="title">Chart of Account</span>
                             </a>
                             <!-- Dropdown level 1 -->
                             <div id="dropdown-icon" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="icons/glyphicons.html">Glyphicons</a>
-                                        </li>
-                                        <li><a href="icons/font-awesome.html">Font Awesomes</a>
-                                        </li>
+                                        <li><a href="#/asset">Asset (10xxx)</a></li>
+                                        <li><a href="#/current_set">Current Set (11xxx)</a></li>
+                                        <li><a href="#/fix_asset">Fix Asset (20xxx)</a></li>
+                                        <li><a href="#/liability">Liability (30XXX)</a></li>
+                                        <li><a href="#/equity">Equity (50XXX)</a></li>
+                                        <li><a href="#/income">Income (60XXX)</a></li>
+                                        <li><a href="#/cost">Cost (70XXX)</a></li>
+                                        <li><a href="#/expense">Expense (80XXX)</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <a href="license.html">
+                            <a href="#/license">
                                 <span class="icon fa fa-thumbs-o-up"></span><span class="title">License</span>
                             </a>
                         </li>
