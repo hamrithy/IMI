@@ -110,7 +110,7 @@ if (isset($HTTP_GET_VARS['action']) && ($HTTP_GET_VARS['action'] == 'process')) 
                                         type="text"
                                         required
                                         name="email_address"
-                                        placeholder="Email Address..."
+                                        placeholder="User Name..."
                                         class="form-username form-control"
                                         id="inputEmail"
                                         >
