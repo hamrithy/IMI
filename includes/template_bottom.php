@@ -9,14 +9,11 @@
 <div>
 <!-- Javascript Libs -->
 <script type="text/javascript" src="js/lib_template/jquery.min.js"></script>
-<!--<script src="js/ng/app/core/script/script_load.js"></script>-->
 <script type="text/javascript" src="js/lib_template/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/underscore/1.7.0/underscore.js"></script>
 <script type="text/javascript" src="js/ng/lib/angular/1.2.25/angular.js"></script>
 <script type="text/javascript" src="js/ng/lib/angular-ui-route/angular-ui-router.js"></script>
 <script type="text/javascript" src="js/ng/lib/angular-sanitize/sanitize.js"></script>
-<script type="text/javascript" src="js/ng/lib/angular-lazy-load/ocLazyLoad.min.js"></script>
-<script type="text/javascript" src="js/ng/lib/angular-lazy-load/ocLazyLoad.require.min.js"></script>
 <script type="text/javascript" src="js/ng/lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
 <script type="text/javascript" src="js/ng/lib/bootstrap-notify/bootstrap-notify.min.js"></script>
 <script src="js/ng/lib/angular-upload/ng-file-upload-shim.js"></script>

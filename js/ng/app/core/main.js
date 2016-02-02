@@ -5,7 +5,6 @@ var app = angular.module(
 		, 'ui.bootstrap'
 		, 'ngSanitize'
 		, 'ui.select'
-		, 'oc.lazyLoad'
 		, 'ngFileUpload'
 	]
 );
