@@ -249,6 +249,11 @@ if (!tep_session_is_registered('customer_id')) {
                             </div>
                         </li>
                         <li>
+                            <a href="#/user">
+                                <span class="icon fa fa-user"></span><span class="title">User</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="#/license">
                                 <span class="icon fa fa-thumbs-o-up"></span><span class="title">License</span>
                             </a>
