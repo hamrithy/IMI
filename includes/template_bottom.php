@@ -24,13 +24,6 @@
 <script src="js/ng/lib/angular-upload/ng-file-upload.js"></script>
 <script src="js/tinymce/tinymce.min.js"></script>
 
-<!-- custom file js ng -->
-<script src="js/ng/app/core/main.js"></script>
-<script src="js/ng/app/core/config/route.js"></script>
-<script src="js/ng/app/core/restful/restful.js"></script>
-<script src="js/ng/app/core/directive/number.js"></script>
-<script src="js/ng/app/account/controller/manage_ctrl.js"></script>
-    
 <!-- for no html5 browsers support -->
 <script type="text/javascript" src="js/lib_template/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/lib_template/Chart.min.js"></script>
@@ -45,6 +38,16 @@
 <!--<!-- Javascript -->-->
 <script type="text/javascript" src="js/lib_template/app.js"></script>
 <script type="text/javascript" src="js/lib_template/index.js"></script>
+
+<!-- custom file js ng -->
+<script src="js/ng/app/core/main.js"></script>
+<script src="js/ng/app/core/config/route.js"></script>
+<script src="js/ng/app/core/restful/restful.js"></script>
+<script src="js/ng/app/core/directive/number.js"></script>
+<script src="js/ng/app/core/services/services.js"></script>
+<script src="js/ng/app/account/controller/manage_ctrl.js"></script>
+<!-- index controller -->
+<script src="js/ng/app/index/controller/index_ctrl.js"></script>
 
 </body>
 

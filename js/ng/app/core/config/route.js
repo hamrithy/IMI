@@ -22,28 +22,7 @@ app.config([
 			state('/', {
 				url: '/',
 				templateUrl: 'js/ng/app/index/partials/index.html',
-				//views: {
-				//	"lazyLoadView": {
-				//		controller: 'index_ctrl', // This view will use AppCtrl loaded below in the resolve
-				//		templateUrl: 'js/ng/app/index/partials/index.html'
-				//	}
-				//},
-				//resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
-				//	loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-				//		// you can lazy load files for an existing module
-				//		$ocLazyLoad.load('js/ng/app/index/controller/index_ctrl.js');
-				//		console.log('load', $ocLazyLoad.load('js/ng/app/index/controller/index_ctrl.js') );
-				//	}]
-				//}
-				//templateUrl: 'js/ng/app/index/partials/index.html',
-				//resolve: {
-				//	load: function () {
-				//		controllers(['js/ng/app/index/controller/index_ctrl.js']) //you can load multiple
-				//		// controller files
-				//	}
-				//}
-				//resolve: {deps: app.resolveScriptDeps(['js/ng/app/index/controller/index_ctrl.js'])},
-				//controller: 'index_ctrl',
+				controller: 'index_ctrl'
 			})
 			.state('/stock', {
 				url: '/stock',
