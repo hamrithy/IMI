@@ -248,10 +248,18 @@ if (!tep_session_is_registered('id')) {
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <a href="#/user">
+                        <li class="panel panel-default dropdown">
+                            <a data-toggle="collapse" href="#dropdown-user">
                                 <span class="icon fa fa-user"></span><span class="title">User</span>
                             </a>
+                            <!-- Dropdown level 1 -->
+                            <div id="dropdown-user" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="#/user">List User</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </li>
                         <li>
                             <a href="#/license">
