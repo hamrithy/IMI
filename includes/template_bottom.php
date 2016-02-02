@@ -47,6 +47,7 @@
 <script src="js/ng/app/index/controller/index_ctrl.js"></script>
 <!--  user controllers  -->
 <script src="js/ng/app/user/controllers/user_ctrl.js"></script>
+<script src="js/ng/app/user/directive/popup.js"></script>
 
 </body>
 
