@@ -49,6 +49,10 @@
 <script src="js/ng/app/user/controllers/user_ctrl.js"></script>
 <script src="js/ng/app/user/directive/popup.js"></script>
 
+<!--  customer type controllers  -->
+<script src="js/ng/app/customer_type/controllers/customer_type_ctrl.js"></script>
+<script src="js/ng/app/customer_type/directive/popup.js"></script>
+
 </body>
 
 </html>

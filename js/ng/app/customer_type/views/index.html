@@ -1,0 +1,66 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <b>Customer Type</b>
+    </div>
+    <div class="panel-body">
+        <button
+            class="btn btn-default"
+            data-toggle="modal"
+            data-target="#customer-type-popup"
+        >
+            <span class="fa fa-plus-circle"></span>
+            Add New Customer Type
+        </button>
+        <br/><br/>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+
+            <th>
+                Description
+            </th>
+            <th width="150px">
+                Action
+            </th>
+            </thead>
+            <tr data-ng-repeat="customer in customerType.elements">
+                <td>
+                    <span data-ng-bind="customer.id"></span>
+                </td>
+                <td>
+                    <span data-ng-bind="customer.name"></span>
+                </td>
+                <td>
+                    <span data-ng-bind="customer.description"></span>
+                </td>
+                <td>
+                    <button class="btn btn-default" data-ng-click="edit(customer);">
+                        <span class="fa fa-edit"></span>
+                    </button>
+                    <button class="btn btn-danger" data-ng-click="remove(customer.id, $index);">
+                        <span class="fa fa-close"></span>
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <div
+            data-ng-if="customerType.elements == 0"
+        >
+            <div class="alert alert-warning alert-dismissible">
+                <strong>Warning!</strong> No product post.
+            </div>
+        </div>
+        <div
+            data-ng-if="!customerType"
+            class="align_center"
+        >
+            <i class="fa fa-refresh fa-spin" style="font-size: 100px;"></i>
+        </div>
+    </div>
+</div>
+<customer:type:popup></customer:type:popup>

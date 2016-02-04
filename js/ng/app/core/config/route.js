@@ -18,6 +18,11 @@ app.config([
 				templateUrl: 'js/ng/app/account/partials/manage.html',
 				controller: 'manage_ctrl'
 			})
+			.state('/customer_type', {
+				url: '/customer_type',
+				templateUrl: 'js/ng/app/customer_type/views/index.html',
+				controller: 'customer_type_ctrl'
+			})
 			.state('/user', {
 				url: '/user',
 				templateUrl: 'js/ng/app/user/views/index.html',
