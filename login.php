@@ -34,7 +34,7 @@ if (isset($HTTP_GET_VARS['action']) && ($HTTP_GET_VARS['action'] == 'process')) 
             tep_session_register('user_name');
             tep_session_register('id');
             tep_session_register('admin');
-            tep_redirect(tep_href_link(FILENAME_DEFAULT));
+            tep_redirect(tep_href_link('#/'));
         }
     }else {
         $messageStack->add('login', 'Error: Invalid administrator login attempt.');
