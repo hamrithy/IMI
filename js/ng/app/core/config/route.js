@@ -67,16 +67,16 @@ app.config([
 				templateUrl: 'js/ng/app/doctor_list/views/index.html',
 				controller: 'doctor_list_ctrl'
 			})
-			// stock route
+			// product route
 			.state('/product_type', {
 				url: '/product_type',
-				templateUrl: 'js/ng/app/stock_type/views/index.html',
-				controller: 'stock_type_ctrl'
+				templateUrl: 'js/ng/app/products_type/views/index.html',
+				controller: 'products_type_ctrl'
 			})
 			.state('/product_list', {
 				url: '/product_list',
-				templateUrl: 'js/ng/app/stock_list/views/index.html',
-				controller: 'stock_list_ctrl'
+				templateUrl: 'js/ng/app/products_list/views/index.html',
+				controller: 'products_list_ctrl'
 			})
 		;
 		$urlRouterProvider.otherwise('/');

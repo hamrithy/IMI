@@ -75,5 +75,14 @@
 <script src="js/ng/app/staff_list/controller/staff_list_ctrl.js"></script>
 <script src="js/ng/app/staff_list/directive/popup.js"></script>
 
-</body>
+<!--  product type controllers  -->
+<script src="js/ng/app/products_type/controller/products_type_ctrl.js"></script>
+<script src="js/ng/app/products_type/directive/popup.js"></script>
+
+<!--  product list controllers  -->
+<script src="js/ng/app/products_list/controller/products_list_ctrl.js"></script>
+<script src="js/ng/app/products_list/directive/popup.js"></script>
+
+
+    </body>
 </html>
