@@ -1,6 +1,6 @@
 <?php
 
-namespace OSC\Staff;
+namespace OSC\DoctorList;
 
 use Aedea\Core\Database\StdCollection;
 
@@ -9,32 +9,26 @@ class Collection extends StdCollection {
 	public function __construct( $params = array() ){
 		parent::__construct($params);
 		
-		$this->addTable('staff', 's');
-		$this->idField = 's.id';
+		$this->addTable('doctor_list', 'dl');
+		$this->idField = 'dl.id';
 		$this->setDistinct(true);
 		
 		$this->objectType = __NAMESPACE__ . '\Object';		
 	}
 
-	public function filterByType( $arg ){
-		if($arg){
-			$this->addWhere("s.type LIKE '%" . $arg. "%' ");
-		}
-	}
-
 	public function filterByName( $arg ){
 		if($arg){
-			$this->addWhere("s.name LIKE '%" . $arg. "%' ");
+			$this->addWhere("dl.name LIKE '%" . $arg. "%' ");
 		}
 	}
 
 	public function filterById( $arg ){
 		if($arg){
-			$this->addWhere("s.id = '" . (int)$arg. "' ");
+			$this->addWhere("dl.id = '" . (int)$arg. "' ");
 		}
 	}
 
-	public function sortByName($arg){
-		$this->addOrderBy('s.name', $arg);
+	public function sortById($arg){
+		$this->addOrderBy('dl.id', $arg);
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace OSC\Staff;
+namespace OSC\SupplierList;
 
 use
 	Aedea\Core\Database\StdObject as DbObj
@@ -9,17 +9,14 @@ use
 class Object extends DbObj {
 		
 	protected
-		$type
-		, $name
-		, $sex
-		, $phone
-		, $dob
-		, $position
-		, $spouse
-		, $minor
-		, $contractDate
-		, $startContract
-		, $endContract
+		$supplierTypeId
+		, $supplierTypeName
+		, $companyName
+		, $tel
+		, $barcode
+		, $contactName
+		, $email
+		, $country
 		, $address
 		, $note
 	;
@@ -27,18 +24,14 @@ class Object extends DbObj {
 	public function toArray( $params = array() ){
 		$args = array(
 			'include' => array(
-				'type',
-				'id',
-				'name',
-				'sex',
-				'phone',
-				'position',
-				'dob',
-				'spouse',
-				'minor',
-				'contract_date',
-				'start_contract',
-				'end_contract',
+				'supplier_type_id',
+				'supplier_type_name',
+				'company_name',
+				'tel',
+				'barcode',
+				'contact_name',
+				'email',
+				'country',
 				'address',
 				'note'
 			)
@@ -50,19 +43,16 @@ class Object extends DbObj {
 	public function load( $params = array() ){
 		$q = $this->dbQuery("
 			SELECT
-				name,
-				phone,
-				type,
-				sex,
+				supplier_type_id,
+				supplier_type_name,
+				company_name,
+				tel,
 				address,
-				dob,
-				position,
-				spouse,
-				minor,
-				note,
-				contract_date,
-				start_contract,
-				end_contract
+				barcode,
+				contact_name,
+				email,
+				country,
+				note
 			FROM
 				staff
 			WHERE

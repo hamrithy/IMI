@@ -53,6 +53,24 @@
 <script src="js/ng/app/customer_type/controllers/customer_type_ctrl.js"></script>
 <script src="js/ng/app/customer_type/directive/popup.js"></script>
 
-</body>
+<!--  customer list controllers  -->
+<script src="js/ng/app/customer_list/controller/customer_list_ctrl.js"></script>
+<script src="js/ng/app/customer_list/directive/popup.js"></script>
+
+<!--  stock type controllers  -->
+<script src="js/ng/app/stock_type/controller/stock_type_ctrl.js"></script>
+<script src="js/ng/app/stock_type/directive/popup.js"></script>
+<!--  stock list controllers  -->
+<script src="js/ng/app/stock_list/controller/stock_list_ctrl.js"></script>
+<script src="js/ng/app/stock_list/directive/popup.js"></script>
+
+<!--  doctor type controllers  -->
+<script src="js/ng/app/doctor_type/controller/doctor_type_ctrl.js"></script>
+<script src="js/ng/app/doctor_type/directive/popup.js"></script>
+<!--  doctor list controllers  -->
+<script src="js/ng/app/doctor_list/controller/doctor_list_ctrl.js"></script>
+<script src="js/ng/app/doctor_list/directive/popup.js"></script>
+
+    </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-namespace OSC\Staff;
+namespace OSC\ProductList;
 
 use Aedea\Core\Database\StdCollection;
 
@@ -8,33 +8,32 @@ class Collection extends StdCollection {
 	
 	public function __construct( $params = array() ){
 		parent::__construct($params);
-		
-		$this->addTable('staff', 's');
-		$this->idField = 's.id';
+		$this->addTable('product_list', 'pl');
+		$this->idField = 'pl.id';
 		$this->setDistinct(true);
-		
 		$this->objectType = __NAMESPACE__ . '\Object';		
 	}
 
-	public function filterByType( $arg ){
+	public function filterByBarcode( $arg ){
 		if($arg){
-			$this->addWhere("s.type LIKE '%" . $arg. "%' ");
+			$this->addWhere("pl.barcode LIKE '%" . $arg. "%' ");
 		}
 	}
 
 	public function filterByName( $arg ){
 		if($arg){
-			$this->addWhere("s.name LIKE '%" . $arg. "%' ");
+			$this->addWhere("pl.product_name LIKE '%" . $arg. "%' ");
 		}
 	}
 
 	public function filterById( $arg ){
 		if($arg){
-			$this->addWhere("s.id = '" . (int)$arg. "' ");
+			$this->addWhere("pl.id = '" . (int)$arg. "' ");
 		}
 	}
 
-	public function sortByName($arg){
-		$this->addOrderBy('s.name', $arg);
+	public function sortById($arg){
+		$this->addOrderBy('pl.id', $arg);
 	}
+	
 }

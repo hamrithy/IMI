@@ -145,7 +145,7 @@ if (!tep_session_is_registered('id')) {
                         </li>
                         <li class="panel panel-default dropdown">
                             <a data-toggle="collapse" href="#dropdown-element">
-                                <span class="icon fa fa-desktop"></span><span class="title">Customers</span>
+                                <span class="icon fa fa-desktop"></span><span class="title">Setup Customers</span>
                             </a>
                             <!-- Dropdown level 1 -->
                             <div id="dropdown-element" class="panel-collapse collapse">
@@ -162,7 +162,7 @@ if (!tep_session_is_registered('id')) {
                         </li>
                         <li class="panel panel-default dropdown">
                             <a data-toggle="collapse" href="#dropdown-table">
-                                <span class="icon fa fa-table"></span><span class="title">Staff</span>
+                                <span class="icon fa fa-table"></span><span class="title">Setup Staff</span>
                             </a>
                             <!-- Dropdown level 1 -->
                             <div id="dropdown-table" class="panel-collapse collapse">
@@ -176,14 +176,28 @@ if (!tep_session_is_registered('id')) {
                             </div>
                         </li>
                         <li class="panel panel-default dropdown">
+                            <a data-toggle="collapse" href="#dropdown-doctor">
+                                <span class="icon fa fa-folder"></span><span class="title">Setup Doctor</span>
+                            </a>
+                            <!-- Dropdown level 1 -->
+                            <div id="dropdown-doctor" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="#/doctor_type">Doctor Type</a></li>
+                                        <li><a href="#/doctor_list">Doctor List</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="panel panel-default dropdown">
                             <a data-toggle="collapse" href="#dropdown-form">
-                                <span class="icon fa fa-file-text-o"></span><span class="title">Supplier</span>
+                                <span class="icon fa fa-file-text-o"></span><span class="title">Set Vendor</span>
                             </a>
                             <!-- Dropdown level 1 -->
                             <div id="dropdown-form" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="#/supplier">Supplier List</a></li>
+                                        <li><a href="#/vendor_list">Vendor List</a></li>
                                         <li><a href="#/enter_bill">Enter Bill</a></li>
                                         <li><a href="#/pay_bill">Pay Bill</a></li>
                                         <li><a href="#/bill_by_cash">Bill By Cash</a></li>
@@ -194,14 +208,14 @@ if (!tep_session_is_registered('id')) {
                         <!-- Dropdown-->
                         <li class="panel panel-default dropdown">
                             <a data-toggle="collapse" href="#component-example">
-                                <span class="icon fa fa-cubes"></span><span class="title">Stock</span>
+                                <span class="icon fa fa-cubes"></span><span class="title">Setup Item</span>
                             </a>
                             <!-- Dropdown level 1 -->
                             <div id="component-example" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="#/stock_type">Stock Type</a></li>
-                                        <li><a href="#/stock_list">Stock List</a></li>
+                                        <li><a href="#/product_type">Product Type</a></li>
+                                        <li><a href="#/product_list">Product List</a></li>
                                     </ul>
                                 </div>
                             </div>

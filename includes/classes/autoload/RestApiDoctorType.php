@@ -1,32 +1,34 @@
 <?php
 
 use
-	OSC\Staff\Collection
-		as StaffCol
-	, OSC\Staff\Object
-		as StaffObj
+	OSC\DoctorType\Collection
+		as DoctorCol
+	, OSC\DoctorType\Object
+		as DoctorObj
 ;
 
-class RestApiStaff extends RestApi {
+class RestApiDoctorType extends RestApi {
 
 	public function get($params){
-		$col = new StaffCol();
+		$col = new DoctorCol();
 		// start limit page
-		$col->sortByName('ASC');
+		$col->sortById('DESC');
 		$col->filterByName($params['GET']['name']);
-		$col->filterByType($params['GET']['type']);
 		$col->filterById($params['GET']['id']);
-		$showDataPerPage = 10;
+		$showDataPerPage = 30;
 		$start = $params['GET']['start'];
 		$this->applyLimit($col,
 			array(
 				'limit' => array( $start, $showDataPerPage )
 			)
 		);
+		$this->applyFilters($col, $params);
+		$this->applySortBy($col, $params);
 		return $this->getReturn($col, $params);
 	}
+
 	public function post($params){
-		$obj = new StaffObj();
+		$obj = new DoctorObj();
 		$obj->setProperties($params['POST']);
 		$obj->insert();
 		return array(
@@ -38,7 +40,7 @@ class RestApiStaff extends RestApi {
 	}
 
 	public function put($params){
-		$obj = new StaffObj();
+		$obj = new DoctorObj();
 		$this->setId($this->getId());
 		$obj->setProperties($params['PUT']);
 		$obj->update($this->getId());
@@ -51,9 +53,8 @@ class RestApiStaff extends RestApi {
 	}
 
 	public function delete(){
-		$obj = new StaffObj();
+		$obj = new DoctorObj();
 		$obj->delete($this->getId());
 	}
-
 
 }

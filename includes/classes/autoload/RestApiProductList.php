@@ -1,20 +1,20 @@
 <?php
 
 use
-	OSC\Staff\Collection
-		as StaffCol
-	, OSC\Staff\Object
-		as StaffObj
+	OSC\ProductList\Collection
+		as ProductListCol
+	, OSC\ProductList\Object
+		as ProductListObj
 ;
 
-class RestApiStaff extends RestApi {
+class RestApiProductList extends RestApi {
 
 	public function get($params){
-		$col = new StaffCol();
+		$col = new ProductListCol();
 		// start limit page
-		$col->sortByName('ASC');
+		$col->sortById('DESC');
 		$col->filterByName($params['GET']['name']);
-		$col->filterByType($params['GET']['type']);
+		$col->filterByBarcode($params['GET']['barcode']);
 		$col->filterById($params['GET']['id']);
 		$showDataPerPage = 10;
 		$start = $params['GET']['start'];
@@ -25,8 +25,9 @@ class RestApiStaff extends RestApi {
 		);
 		return $this->getReturn($col, $params);
 	}
+
 	public function post($params){
-		$obj = new StaffObj();
+		$obj = new ProductListObj();
 		$obj->setProperties($params['POST']);
 		$obj->insert();
 		return array(
@@ -38,7 +39,7 @@ class RestApiStaff extends RestApi {
 	}
 
 	public function put($params){
-		$obj = new StaffObj();
+		$obj = new ProductListObj();
 		$this->setId($this->getId());
 		$obj->setProperties($params['PUT']);
 		$obj->update($this->getId());
@@ -51,9 +52,8 @@ class RestApiStaff extends RestApi {
 	}
 
 	public function delete(){
-		$obj = new StaffObj();
+		$obj = new ProductListObj();
 		$obj->delete($this->getId());
 	}
-
 
 }
