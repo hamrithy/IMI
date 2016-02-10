@@ -11,16 +11,13 @@ app.controller(
                 Restful.get(url, params).success(function(data){
                     $scope.totalItems = data.count;
                     $scope.customerList = data;
-                    console.log(data);
                 });
                 // start init customer type
                 Restful.get('api/CustomerType').success(function(data){
                     $scope.customerType = data;
-                    console.log(data);
                 });
             };
             $scope.init();
-
             $scope.edit = function(params){
                 $scope.params = angular.copy(params);
                 $scope.full_name = $scope.params.full_name;
