@@ -50,6 +50,12 @@ app.config([
 				templateUrl: 'js/ng/app/user/views/index.html',
 				controller: 'user_ctrl'
 			})
+			// staff route
+			.state('/staff_list', {
+				url: '/staff_list',
+				templateUrl: 'js/ng/app/staff_list/views/index.html',
+				controller: 'staff_list_ctrl'
+			})
 			// doctor route
 			.state('/doctor_type', {
 				url: '/doctor_type',

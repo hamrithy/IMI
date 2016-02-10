@@ -78,6 +78,84 @@ class Object extends DbObj {
 		$this->setProperties($this->dbFetchArray($q));
 	}
 
+	public function delete($id){
+		if( !$id ) {
+			throw new Exception("delete method requires id to be set");
+		}
+		$this->dbQuery("
+			DELETE FROM
+				staff
+			WHERE
+				id = '" . (int)$id . "'
+		");
+	}
+
+	public function update($id){
+		$this->dbQuery("
+			UPDATE
+				staff
+			SET
+ 				sex = '" . $this->getSex() . "',
+ 				name = '" . $this->getName() . "',
+ 				phone = '" . $this->getPhone() . "',
+ 				type = '" . $this->getType() . "',
+ 				address = '" . $this->getAddress() . "',
+ 				dob = '" . $this->getDob() . "',
+ 				position = '" . $this->getPosition() . "',
+ 				spouse = '" . $this->getSpouse() . "',
+ 				minor = '" . $this->getMinor() . "',
+ 				note = '" . $this->getNote() . "',
+ 				contract_date = '" . $this->getContractDate() . "',
+ 				start_contract = '" . $this->getStartContract() . "',
+ 				end_contract = '" . $this->getEndContract() . "'
+			WHERE
+				id = '" . (int)$id . "'
+		");
+	}
+
+	public function insert(){
+		$this->dbQuery("
+			INSERT INTO
+				staff
+			(
+				name,
+				phone,
+				type,
+				sex,
+				address,
+				dob,
+				position,
+				spouse,
+				minor,
+				note,
+				contract_date,
+				start_contract,
+				end_contract,
+				status,
+				create_date
+			)
+				VALUES
+			(
+				'" . $this->getName() . "',
+				'" . $this->getPhone() . "',
+				'" . $this->getType() . "',
+				'" . $this->getSex() . "',
+				'" . $this->getAddress() . "',
+				'" . $this->getDob() . "',
+				'" . $this->getPosition() . "',
+				'" . $this->getSpouse() . "',
+				'" . $this->getMinor() . "',
+				'" . $this->getNote() . "',
+				'" . $this->getContractDate() . "',
+				'" . $this->getStartContract() . "',
+				'" . $this->getEndContract() . "',
+				1,
+				NOW()
+			)
+		");
+		$this->setId( $this->dbInsertId() );
+	}
+
 	public function setEndContract( $string ){
 		$this->endContract = (string)$string;
 	}

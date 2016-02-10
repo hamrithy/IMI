@@ -71,6 +71,9 @@
 <script src="js/ng/app/doctor_list/controller/doctor_list_ctrl.js"></script>
 <script src="js/ng/app/doctor_list/directive/popup.js"></script>
 
-    </body>
+<!--  staff list controllers  -->
+<script src="js/ng/app/staff_list/controller/staff_list_ctrl.js"></script>
+<script src="js/ng/app/staff_list/directive/popup.js"></script>
 
+</body>
 </html>
