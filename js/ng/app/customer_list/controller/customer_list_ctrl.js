@@ -12,6 +12,10 @@ app.controller(
                     $scope.totalItems = data.count;
                     $scope.customerList = data;
                 });
+                // start init Doctor List
+                Restful.get('api/DoctorList').success(function(data){
+                    $scope.doctors = data;
+                });
                 // start init customer type
                 Restful.get('api/CustomerType').success(function(data){
                     $scope.customerType = data;
@@ -30,6 +34,7 @@ app.controller(
                 $scope.relative_contact = $scope.params.relative_contact;
                 $scope.relative_tel = $scope.params.relative_tel;
                 $scope.detail = $scope.params.detail;
+                $scope.doctor_id = $scope.params.doctor_id;
                 $scope.id = $scope.params.id;
                 $('#customer-list-popup').modal('show');
             };
@@ -42,6 +47,7 @@ app.controller(
                     relative_contact: $scope.relative_contact,
                     relative_tel: $scope.relative_tel,
                     full_name: $scope.full_name,
+                    doctor_id: $scope.doctor_id,
                     detail: $scope.detail,
                     email: $scope.email,
                     address: $scope.address,
@@ -59,7 +65,7 @@ app.controller(
                     });
                 }else {
                     Restful.save( url , data).success(function (data) {
-                        $scope.init();
+                        $scope.init();console.log(data);
                         $('#customer-list-popup').modal('hide');
                         $scope.close();
                         $scope.service.alertMessage('<strong>Success: </strong>', 'Save Success.', 'success');

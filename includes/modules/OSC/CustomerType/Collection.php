@@ -15,5 +15,11 @@ class Collection extends StdCollection {
 		
 		$this->objectType = __NAMESPACE__ . '\Object';		
 	}
-	
+
+	public function filterById( $arg ){
+		if($arg){
+			$this->addWhere("ct.id = '" . (int)$arg. "' ");
+		}
+	}
+
 }

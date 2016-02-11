@@ -41,6 +41,22 @@
 						</tr>
 						<tr>
 							<td>
+								Doctor Name:
+							</td>
+							<td>
+								<select
+									data-ng-model="doctor_id"
+									data-ng-options="doctor.id as doctor.name for doctor in doctors.elements"
+									data-ng-init="doctor_id == doctor.id"
+									class="form-control"
+									required
+									>
+									<option value="">--Select--</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>
 								Full Name:
 							</td>
 							<td>

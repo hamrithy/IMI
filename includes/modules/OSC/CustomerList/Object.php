@@ -4,6 +4,10 @@ namespace OSC\CustomerList;
 
 use
 	Aedea\Core\Database\StdObject as DbObj
+	, OSC\DoctorList\Collection
+		as  DoctorListCol
+	, OSC\CustomerType\Collection
+		as  CustomerTypeCol
 ;
 
 class Object extends DbObj {
@@ -17,8 +21,11 @@ class Object extends DbObj {
 		, $tel
 		, $email
 		, $address
+		, $doctorId
 		, $relativeContact
 		, $relativeTel
+		, $doctorFields
+		, $customerType
 	;
 	
 	public function toArray( $params = array() ){
@@ -34,13 +41,21 @@ class Object extends DbObj {
 				'email',
 				'address',
 				'relative_contact',
+				'doctor_fields',
+				'customer_type',
 				'relative_tel',
 			)
 		);
 
 		return parent::toArray($args);
 	}
-	
+
+	public function __construct( $params = array() ){
+		parent::__construct($params);
+		$this->doctorFields = new DoctorListCol();
+		$this->customerType = new CustomerTypeCol();
+	}
+
 	public function load( $params = array() ){
 		$q = $this->dbQuery("
 			SELECT
@@ -48,6 +63,7 @@ class Object extends DbObj {
 				detail,
 				customer_type_id,
 				sex,
+				doctor_id,
 				dob,
 				tel,
 				email,
@@ -67,6 +83,12 @@ class Object extends DbObj {
 			);
 		}
 		$this->setProperties($this->dbFetchArray($q));
+
+		$this->customerType->setFilter('id', $this->getCustomerTypeId());
+		$this->customerType->populate();
+
+		$this->doctorFields->setFilter('id', $this->getDoctorId());
+		$this->doctorFields->populate();
 	}
 
 	public function update($id){
@@ -80,6 +102,7 @@ class Object extends DbObj {
 				full_name = '" . $this->getFullName() . "',
 				customer_type_id = '" . $this->getCustomerTypeId() . "',
 				dob = '" . $this->getDob() . "',
+				doctor = '" . $this->getDoctorId() . "',
 				tel = '" . $this->getTel() . "',
 				address = '" . $this->getAddress() . "',
 				detail = '" . $this->getDetail() . "',
@@ -116,6 +139,7 @@ class Object extends DbObj {
 				address,
 				tel,
 				dob,
+				doctor_id,
 				relative_contact,
 				relative_tel,
 				email,
@@ -130,6 +154,7 @@ class Object extends DbObj {
 				'" . $this->getAddress() . "',
 				'" . $this->getTel() . "',
 				'" . $this->getDob() . "',
+				'" . $this->getDoctorId() . "',
 				'" . $this->getRelativeContact() . "',
 				'" . $this->getRelativeTel() . "',
 				'" . $this->getEmail() . "',
@@ -147,6 +172,14 @@ class Object extends DbObj {
 
 	public function getDetail(){
 		return $this->detail;
+	}
+
+	public function setDoctorId( $string ){
+		$this->doctorId = $string;
+	}
+
+	public function getDoctorId(){
+		return $this->doctorId;
 	}
 
 	public function setSex( $string ){
@@ -221,4 +254,19 @@ class Object extends DbObj {
 		return $this->fullName;
 	}
 
+	public function setCustomerType( $string ){
+		$this->customerType = $string;
+	}
+
+	public function getCustomerType(){
+		return $this->customerType;
+	}
+
+	public function setDoctorFields( $string ){
+		$this->doctorFields = $string;
+	}
+
+	public function getDoctorFields(){
+		return $this->doctorFields;
+	}
 }

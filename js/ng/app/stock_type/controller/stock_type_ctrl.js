@@ -6,7 +6,7 @@ app.controller(
         , function ($scope, Restful, Services){
             'use strict';
             $scope.service = new Services();
-            var url = 'api/StockType/';
+            var url = 'api/ProductsType/';
             $scope.init = function(params){
                 Restful.get(url, params).success(function(data){
                     $scope.stockType = data;
@@ -19,7 +19,7 @@ app.controller(
                 $scope.name = $scope.params.name;
                 $scope.description = $scope.params.description;
                 $scope.id = $scope.params.id;
-                $('#customer-type-popup').modal('show');
+                $('#products-type-popup').modal('show');
             };
             $scope.disable = true;
             $scope.save = function(){
@@ -29,14 +29,14 @@ app.controller(
                     Restful.put( url + $scope.id, data).success(function (data) {
                         $scope.init();
                         $scope.service.alertMessage('<strong>Success: </strong>', 'Update Success.', 'success');
-                        $('#customer-type-popup').modal('hide');
+                        $('#products-type-popup').modal('hide');
                         clear();
                         $scope.disable = true;
                     });
                 }else {
                     Restful.save( url , data).success(function (data) {
                         $scope.init();
-                        $('#customer-type-popup').modal('hide');
+                        $('#products-type-popup').modal('hide');
                         clear();
                         $scope.service.alertMessage('<strong>Success: </strong>', 'Save Success.', 'success');
                         $scope.disable = true;
@@ -45,8 +45,7 @@ app.controller(
             };
 
             $scope.remove = function(id){
-                if (confirm('Are you sure you want to delete this customer type?')) {
-                    console.log(url + id );
+                if (confirm('Are you sure you want to delete this product type?')) {
                     Restful.delete(url + id ).success(function(data){console.log(data);
                         $scope.service.alertMessage('<strong>Success: </strong>', 'Delete Success.', 'success');
                         $scope.init();

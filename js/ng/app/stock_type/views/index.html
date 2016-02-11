@@ -10,7 +10,7 @@
                 data-target="#stock-type-popup"
                 >
             <span class="fa fa-plus-circle"></span>
-            Add Stock Type
+            Add New
         </button>
         <br/><br/>
         <table class="table table-bordered table-striped">
@@ -19,38 +19,44 @@
                 Id
             </th>
             <th>
-                User Name
+                Name
+            </th>
+            <th>
+                Description
             </th>
             <th width="150px">
                 Action
             </th>
             </thead>
-            <tr data-ng-repeat="stock_type in stockType.elements">
+            <tr data-ng-repeat="product_type in productType.elements">
                 <td>
-                    <span data-ng-bind="stock_type.id"></span>
+                    <span data-ng-bind="product_type.id"></span>
                 </td>
                 <td>
-                    <span data-ng-bind="stock_type.name"></span>
+                    <span data-ng-bind="product_type.name"></span>
                 </td>
                 <td>
-                    <button class="btn btn-default" data-ng-click="edit(stock_type);">
+                    <span data-ng-bind="product_type.description"></span>
+                </td>
+                <td>
+                    <button class="btn btn-default" data-ng-click="edit(product_type);">
                         <span class="fa fa-edit"></span>
                     </button>
-                    <button class="btn btn-danger" data-ng-click="remove(stock_type.id, $index);">
+                    <button class="btn btn-danger" data-ng-click="remove(product_type.id, $index);">
                         <span class="fa fa-close"></span>
                     </button>
                 </td>
             </tr>
         </table>
         <div
-            data-ng-if="stockType.elements == 0"
+            data-ng-if="productType.elements == 0"
         >
             <div class="alert alert-warning alert-dismissible">
                 <strong>Warning!</strong> No product post.
             </div>
         </div>
         <div
-                data-ng-if="!customerType"
+                data-ng-if="!productType"
                 class="align_center"
                 >
             <i class="fa fa-refresh fa-spin" style="font-size: 100px;"></i>

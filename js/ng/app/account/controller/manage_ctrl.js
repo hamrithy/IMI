@@ -6,7 +6,7 @@ app.controller(
 	, 'Upload'
 	, '$timeout'
 	, function ($scope, Restful, Services, Upload, $timeout){
-		var url = 'api/Session/User/ProductPost';
+		var url = 'api/Session/User/Products';
 		$scope.init = function(params){
 			Restful.get(url, params).success(function(data){
 				$scope.products_post = data;
@@ -73,7 +73,7 @@ app.controller(
 		};
 
 		$scope.refreshDate = function(params){
-			Restful.patch('api/Session/User/ProductPost/'+params.id).success(function(data){
+			Restful.patch('api/Session/User/Products/'+params.id).success(function(data){
 				$scope.init();
 			});
 		};
@@ -81,7 +81,7 @@ app.controller(
 		$scope.updateStatus = function(params){
 			params.products_status == 1 ? params.products_status = 0 : params.products_status = 1;
 			var data = { status: params.products_status, name: "update_status"};
-			Restful.patch('api/Session/User/ProductPost/'+params.id, data).success(function(data){});
+			Restful.patch('api/Session/User/Products/'+params.id, data).success(function(data){});
 		};
 
 		$scope.link = function(id){
@@ -172,7 +172,7 @@ app.controller(
 			$scope.disabled = false;
 			if($scope.id) {
 				$scope.disabled = true;
-				Restful.put('api/Session/User/ProductPost/' + $scope.id, params).success(function (data) {
+				Restful.put('api/Session/User/Products/' + $scope.id, params).success(function (data) {
 					$scope.init();
 					$scope.closeForm();
 					$.notify({
@@ -184,7 +184,7 @@ app.controller(
 					$('#product-popup').modal('hide');
 				});
 			}else {
-				Restful.save('api/Session/User/ProductPost', params).success(function (data) {
+				Restful.save('api/Session/User/Products', params).success(function (data) {
 					$scope.init();
 					$scope.closeForm();
 					$scope.disabled = true;
@@ -201,7 +201,7 @@ app.controller(
 
 		$scope.remove = function(id, $index){
 				if (confirm('Are you sure you want to delete this product?')) {
-				Restful.delete( 'api/Session/User/ProductPost/' + id ).success(function(data){
+				Restful.delete( 'api/Session/User/Products/' + id ).success(function(data){
 					$.notify({
 						title: '<strong>Success: </strong>',
 						message: 'Delete Success.'
