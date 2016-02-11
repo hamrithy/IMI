@@ -22,6 +22,7 @@ class RestApiProducts extends RestApi {
 		);
 		$col->sortByDate('DESC');
 		$col->filterById($id);
+		$col->filterByName($params['GET']['name']);
 		$this->applyFilters($col, $params);
 		$this->applySortBy($col, $params);
 		return $this->getReturn($col, $params);
@@ -42,7 +43,7 @@ class RestApiProducts extends RestApi {
 	public function put($params){
 		$obj = new ProductObj();
 		$obj->setProperties($params['PUT']);
-		$obj->update();
+		$obj->update($this->getId());
 	}
 
 	public function delete(){

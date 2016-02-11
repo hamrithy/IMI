@@ -10,7 +10,7 @@ if (!tep_session_is_registered('id')) {
 <meta charset="<?php echo CHARSET; ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-se=1cal">
-<title><?php echo tep_output_string_protected($oscTemplate->getTitle()); ?></title>
+<title>IMI Management System</title>
     <link rel="shortcut icon" href="images/banners/logo.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fonts -->
