@@ -78,6 +78,17 @@ app.config([
 				templateUrl: 'js/ng/app/products_list/views/index.html',
 				controller: 'products_list_ctrl'
 			})
+			// vendor route
+			.state('/vendor_type', {
+				url: '/vendor_type',
+				templateUrl: 'js/ng/app/vendor_type/views/index.html',
+				controller: 'vendor_type_ctrl'
+			})
+			.state('/vendor_list', {
+				url: '/vendor_list',
+				templateUrl: 'js/ng/app/vendor_list/views/index.html',
+				controller: 'vendor_list_ctrl'
+			})
 		;
 		$urlRouterProvider.otherwise('/');
 	}

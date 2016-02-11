@@ -197,6 +197,7 @@ if (!tep_session_is_registered('id')) {
                             <div id="dropdown-form" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <ul class="nav navbar-nav">
+                                        <li><a href="#/vendor_type">Vendor Type</a></li>
                                         <li><a href="#/vendor_list">Vendor List</a></li>
                                         <li><a href="#/enter_bill">Enter Bill</a></li>
                                         <li><a href="#/pay_bill">Pay Bill</a></li>
