@@ -35,6 +35,12 @@
                 Name
             </th>
             <th>
+                Type
+            </th>
+            <th>
+                Doctor Name
+            </th>
+            <th>
                 Tel
             </th>
             <th>
@@ -53,6 +59,12 @@
                 </td>
                 <td>
                     <span data-ng-bind="customer.full_name"></span>
+                </td>
+                <td>
+                    <span data-ng-bind="customer.customer_type[0].name"></span>
+                </td>
+                <td>
+                    <span data-ng-bind="customer.doctor_fields[0].name"></span>
                 </td>
                 <td>
                     <span data-ng-bind="customer.tel"></span>
@@ -90,14 +102,14 @@
 </div>
 <div
     class="panel-footer"
-    data-ng-show="totalItems > 30"
+    data-ng-show="totalItems > 20"
 >
 <pagination
     total-items="totalItems"
     ng-model="currentPage"
     ng-change="pageChanged()"
     max-size="5"
-    items-per-page="30"
+    items-per-page="20"
     boundary-links="true"
 ></pagination>
 </div>

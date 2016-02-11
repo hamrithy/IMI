@@ -41,7 +41,7 @@ app.controller(
                 $scope.barcode = $scope.params.barcode;
                 $scope.products_description = $scope.params.products_description;
                 $scope.products_quantity = $scope.params.products_quantity;
-                //$scope.products_type = $scope.params.products_type_fields[0].id;
+                $scope.products_type = $scope.params.products_type_fields[0].id;
                 $scope.products_price = $scope.params.products_price;
                 $scope.id = $scope.params.id;
                 $scope.qty = true;
@@ -93,7 +93,7 @@ app.controller(
                 $scope.disable = true;
                 $scope.products_name = '';
                 $scope.products_description = '';
-                $scope.products_type_id = '';
+                $scope.products_type = '';
                 $scope.products_price = '';
                 $scope.products_quantity = '';
                 $scope.barcode = '';

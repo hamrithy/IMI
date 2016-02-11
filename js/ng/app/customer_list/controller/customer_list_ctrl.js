@@ -26,7 +26,7 @@ app.controller(
                 $scope.params = angular.copy(params);
                 $scope.full_name = $scope.params.full_name;
                 $scope.sex = $scope.params.sex;
-                $scope.customer_type_id = $scope.params.customer_type_id;
+                $scope.customer_type_id = $scope.params.customer_type[0].id;
                 $scope.address = $scope.params.address;
                 $scope.dob = $scope.params.dob;
                 $scope.email = $scope.params.email;
@@ -34,8 +34,8 @@ app.controller(
                 $scope.relative_contact = $scope.params.relative_contact;
                 $scope.relative_tel = $scope.params.relative_tel;
                 $scope.detail = $scope.params.detail;
-                $scope.doctor_id = $scope.params.doctor_id;
-                $scope.id = $scope.params.id;
+                $scope.doctor_id = $scope.params.doctor_fields[0].id;
+                $scope.id = $scope.params.id;console.log(params);
                 $('#customer-list-popup').modal('show');
             };
             $scope.disable = true;
@@ -111,7 +111,7 @@ app.controller(
             $scope.currentPage = 1;
             //get another portions of data on page changed
             $scope.pageChanged = function() {
-                $scope.pageSize = 30 * ( $scope.currentPage - 1 );
+                $scope.pageSize = 20 * ( $scope.currentPage - 1 );
                 params.start = $scope.pageSize;
                 $scope.init(params);
             };

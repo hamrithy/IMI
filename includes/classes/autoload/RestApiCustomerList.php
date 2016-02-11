@@ -15,7 +15,7 @@ class RestApiCustomerList extends RestApi {
 		$col->sortById('DESC');
 		$col->filterByName($params['GET']['name']);
 		$col->filterById($params['GET']['id']);
-		$showDataPerPage = 30;
+		$showDataPerPage = 20;
 		$start = $params['GET']['start'];
 		$this->applyLimit($col,
 			array(

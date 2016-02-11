@@ -35,6 +35,9 @@
                 Name
             </th>
             <th>
+                Type
+            </th>
+            <th>
                 Barcode
             </th>
             <th>
@@ -56,6 +59,9 @@
                 </td>
                 <td>
                     <span data-ng-bind="product_list.products_name"></span>
+                </td>
+                <td>
+                    <span data-ng-bind="product_list.products_type_fields[0].name"></span>
                 </td>
                 <td>
                     <span data-ng-bind="product_list.barcode"></span>

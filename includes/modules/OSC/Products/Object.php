@@ -29,7 +29,6 @@ class Object extends DbObj {
 				'products_quantity',
 				'products_type_fields',
 				'barcode',
-				'products_type_id',
 				'products_description',
 				'products_name'
 			)
@@ -40,7 +39,7 @@ class Object extends DbObj {
 	public function __construct( $params = array() ){
  		parent::__construct($params);
 		
- 		$this->productsType = new ProductTypeCol();
+ 		$this->productsTypeFields = new ProductTypeCol();
 	}
 
 	public function load( $params = array() ){
@@ -68,8 +67,8 @@ class Object extends DbObj {
 		
 		$this->setProperties($this->dbFetchArray($q));
 
- 		$this->productsType->setFilter('id', $this->getProductsTypeId());
- 		$this->productsType->populate();
+ 		$this->productsTypeFields->setFilter('id', $this->getProductsTypeId());
+ 		$this->productsTypeFields->populate();
 
 	}
 	

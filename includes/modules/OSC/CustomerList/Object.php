@@ -102,7 +102,7 @@ class Object extends DbObj {
 				full_name = '" . $this->getFullName() . "',
 				customer_type_id = '" . $this->getCustomerTypeId() . "',
 				dob = '" . $this->getDob() . "',
-				doctor = '" . $this->getDoctorId() . "',
+				doctor_id = '" . $this->getDoctorId() . "',
 				tel = '" . $this->getTel() . "',
 				address = '" . $this->getAddress() . "',
 				detail = '" . $this->getDetail() . "',
