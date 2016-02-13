@@ -73,10 +73,14 @@
 								Sex:
 							</td>
 							<td>
-								<select class="form-control" required>
+								<select
+									class="form-control"
+									required
+									data-ng-options="gender for gender in ['Male', 'Female']"
+									data-ng-init="sex == gender"
+									data-ng-model="sex"
+								>
 									<option value="">--Select--</option>
-									<option data-ng-value="male">Male</option>
-									<option data-ng-value="female">Female</option>
 								</select>
 							</td>
 						</tr>

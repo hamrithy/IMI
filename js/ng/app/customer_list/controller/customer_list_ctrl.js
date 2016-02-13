@@ -53,7 +53,7 @@ app.controller(
                     address: $scope.address,
                     dob: $scope.dob,
                 };
-                console.log(data);
+
                 $scope.disable = false;
                 if($scope.id) {console.log($scope.id);
                     Restful.put( url + $scope.id, data).success(function (data) {
@@ -65,7 +65,7 @@ app.controller(
                     });
                 }else {
                     Restful.save( url , data).success(function (data) {
-                        $scope.init();console.log(data);
+                        $scope.init();
                         $('#customer-list-popup').modal('hide');
                         $scope.close();
                         $scope.service.alertMessage('<strong>Success: </strong>', 'Save Success.', 'success');

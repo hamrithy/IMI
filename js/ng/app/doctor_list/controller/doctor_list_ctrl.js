@@ -42,9 +42,9 @@ app.controller(
                 $scope.sex = $scope.params.sex;
                 $scope.address = $scope.params.address;
                 $scope.phone = $scope.params.phone;
-                $scope.doctor_type_id = $scope.params.doctor_type_id;
+                $scope.doctor_type_id = $scope.params.doctor_type[0].id;
                 $scope.id = $scope.params.id;
-                $('#doctor-list-popup').modal('show');
+                $('#doctor-list-popup').modal('show');console.log(params);
             };
             $scope.disable = true;
             $scope.save = function(){
