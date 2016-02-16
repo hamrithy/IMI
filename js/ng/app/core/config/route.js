@@ -39,10 +39,10 @@ app.config([
 				templateUrl: 'js/ng/app/received_payment/views/index.html',
 				controller: 'received_payment_ctrl'
 			})
-			.state('/sale_enter_sale_receive', {
-				url: '/sale_enter_sale_receive',
-				templateUrl: 'js/ng/app/sale_enter_sale_receive/views/index.html',
-				controller: 'sale_enter_sale_receive_ctrl'
+			.state('/service', {
+				url: '/service',
+				templateUrl: 'js/ng/app/service/views/index.html',
+				controller: 'service_ctrl'
 			})
 			// user route
 			.state('/user', {
@@ -88,6 +88,17 @@ app.config([
 				url: '/vendor_list',
 				templateUrl: 'js/ng/app/vendor_list/views/index.html',
 				controller: 'vendor_list_ctrl'
+			})
+			// purchase route
+			.state('/purchase', {
+				url: '/purchase',
+				templateUrl: 'js/ng/app/purchase/views/index.html',
+				controller: 'purchase_ctrl'
+			})
+			.state('/purchase_order', {
+				url: '/purchase_order',
+				templateUrl: 'js/ng/app/purchase_detail/views/index.html',
+				controller: 'purchase_detail_ctrl'
 			})
 		;
 		$urlRouterProvider.otherwise('/');
