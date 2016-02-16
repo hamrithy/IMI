@@ -52,7 +52,6 @@ app.controller(
                 }else {
                     Restful.save( url , data).success(function (data) {
                         $scope.init();
-                        console.log(data);
                         $('#service-popup').modal('hide');
                         clear();
                         $scope.service.alertMessage('<strong>Success: </strong>', 'Save Success.', 'success');
@@ -61,7 +60,7 @@ app.controller(
                 }
             };
 
-            $scope.updateStatus = function(params){console.log(params);
+            $scope.updateStatus = function(params){
                 params.status === 1 ? params.status = 0 : params.status = 1;
                 Restful.patch(url + params.id, params ).success(function(data) {
                     $scope.service.alertMessage('<strong>Success: </strong>', 'Update Success.', 'success');
