@@ -199,9 +199,34 @@ if (!tep_session_is_registered('id')) {
                                     <ul class="nav navbar-nav">
                                         <li><a href="#/vendor_type">Vendor Type</a></li>
                                         <li><a href="#/vendor_list">Vendor List</a></li>
-                                        <li><a href="#/enter_bill">Enter Bill</a></li>
                                         <li><a href="#/pay_bill">Pay Bill</a></li>
-                                        <li><a href="#/bill_by_cash">Bill By Cash</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="panel panel-default dropdown">
+                            <a data-toggle="collapse" href="#purchase-form">
+                                <span class="icon fa fa-file-text-o"></span><span class="title">Purchase</span>
+                            </a>
+                            <!-- Dropdown level 1 -->
+                            <div id="purchase-form" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="#/purchase_order">Purchase Order</a></li>
+                                        <li><a href="#/purchase">Purchase</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="panel panel-default dropdown">
+                            <a data-toggle="collapse" href="#sale-form">
+                                <span class="icon fa fa-file-text-o"></span><span class="title">Sale</span>
+                            </a>
+                            <!-- Dropdown level 1 -->
+                            <div id="sale-form" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="#/sale">Sale</a></li>
                                     </ul>
                                 </div>
                             </div>
