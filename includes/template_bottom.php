@@ -87,6 +87,10 @@
 <script src="js/ng/app/vendor_type/controller/vendor_type_ctrl.js"></script>
 <script src="js/ng/app/vendor_type/directive/popup.js"></script>
 
+<!--  Vendor List controllers  -->
+<script src="js/ng/app/vendor_list/controller/vendor_list_ctrl.js"></script>
+<script src="js/ng/app/vendor_list/directive/popup.js"></script>
+
 
     </body>
 </html>
