@@ -238,8 +238,8 @@ class Object extends DbObj {
 		return $this->address;
 	}
 
-	public function setDob( $string ){
-		$this->dob = $string;
+	public function setDob( $date ){
+		$this->dob =  date('Y-m-d', strtotime( $date ));
 	}
 
 	public function getDob(){

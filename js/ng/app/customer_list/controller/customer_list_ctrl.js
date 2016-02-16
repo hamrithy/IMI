@@ -20,7 +20,7 @@ app.controller(
                 Restful.get('api/CustomerType').success(function(data){
                     $scope.customerType = data;
                 });
-            };
+            };$scope.dob = '2016-02-11';
             $scope.init();
             $scope.edit = function(params){
                 $scope.params = angular.copy(params);

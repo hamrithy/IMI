@@ -191,7 +191,7 @@ if (!tep_session_is_registered('id')) {
                         </li>
                         <li class="panel panel-default dropdown">
                             <a data-toggle="collapse" href="#dropdown-form">
-                                <span class="icon fa fa-file-text-o"></span><span class="title">Set Vendor</span>
+                                <span class="icon fa fa-file-text-o"></span><span class="title">Setup Vendor</span>
                             </a>
                             <!-- Dropdown level 1 -->
                             <div id="dropdown-form" class="panel-collapse collapse">

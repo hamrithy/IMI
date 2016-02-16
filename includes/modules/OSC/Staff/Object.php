@@ -156,24 +156,24 @@ class Object extends DbObj {
 		$this->setId( $this->dbInsertId() );
 	}
 
-	public function setEndContract( $string ){
-		$this->endContract = (string)$string;
+	public function setEndContract( $date ){
+		$this->endContract = date('Y-m-d', strtotime( $date ));
 	}
 
 	public function getEndContract(){
 		return $this->endContract;
 	}
 
-	public function setStartContract( $string ){
-		$this->startContract = (string)$string;
+	public function setStartContract( $date ){
+		$this->startContract = date('Y-m-d', strtotime( $date ));
 	}
 
 	public function getStartContract(){
 		return $this->startContract;
 	}
 
-	public function setContractDate( $string ){
-		$this->contractDate = (string)$string;
+	public function setContractDate( $date ){
+		$this->contractDate = date('Y-m-d', strtotime( $date ));;
 	}
 
 	public function getContractDate(){
@@ -212,8 +212,8 @@ class Object extends DbObj {
 		return $this->position;
 	}
 
-	public function setDob( $string ){
-		$this->dob = (string)$string;
+	public function setDob( $date ){
+		$this->dob =  date('Y-m-d', strtotime( $date ));
 	}
 
 	public function getDob(){
