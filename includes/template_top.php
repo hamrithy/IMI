@@ -155,7 +155,7 @@ if (!tep_session_is_registered('id')) {
                                         <li><a href="#/customer_list">Customer List</a></li>
                                         <li><a href="#/create_invoice">Create Invoice</a></li>
                                         <li><a href="#/received_payment">Received Payment</a></li>
-                                        <li><a href="#/sale_enter_sell_receive">Sale Enter Sell Receive</a></li>
+                                        <li><a href="#/service">Service</a></li>
                                     </ul>
                                 </div>
                             </div>

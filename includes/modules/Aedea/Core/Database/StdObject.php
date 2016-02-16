@@ -17,7 +17,9 @@ abstract class StdObject extends StdClass {
 		$id,
 		$created,
 		$modified,
-		$status
+		$status,
+		$createBy,
+		$modifiesBy
 	;
 	
 	/**
@@ -223,6 +225,22 @@ abstract class StdObject extends StdClass {
 	
 	public function setStatus( $id ) {
 		$this->status = (int)$id;
+	}
+
+	public function getModifiesBy() {
+		return $this->modifiesBy;
+	}
+
+	public function setModifiesBy( $id ) {
+		$this->modifiesBy = $id;
+	}
+
+	public function getCreateBy() {
+		return $this->createBy;
+	}
+
+	public function setCreateBy( $id ) {
+		$this->createBy = $id;
 	}
 	
 }
