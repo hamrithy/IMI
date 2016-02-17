@@ -26,12 +26,14 @@ if (!tep_session_is_registered('id')) {
     <link rel="stylesheet" type="text/css" href="css/lib_template/select.css">
     <link rel="stylesheet" type="text/css" href="css/lib_template/flat-blue.css">
     <link rel="stylesheet" type="text/css" href="css/lib_template/select2.min.css">
+    <!-- Select2 theme -->
+    <link rel="stylesheet" href="css/lib_template/select2.css">
     <link rel="stylesheet" type="text/css" href="css/lib_template/selectize.default.css">
 </head>
 <body class="flat-blue">
 <div class="app-container">
     <div class="row content-container">
-        <nav class="navbar navbar-default navbar-fixed-top navbar-top">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-top" style="z-index:99999;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-expand-toggle">
@@ -199,34 +201,9 @@ if (!tep_session_is_registered('id')) {
                                     <ul class="nav navbar-nav">
                                         <li><a href="#/vendor_type">Vendor Type</a></li>
                                         <li><a href="#/vendor_list">Vendor List</a></li>
-                                        <li><a href="#/pay_bill">Pay Bill</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="panel panel-default dropdown">
-                            <a data-toggle="collapse" href="#purchase-form">
-                                <span class="icon fa fa-file-text-o"></span><span class="title">Purchase</span>
-                            </a>
-                            <!-- Dropdown level 1 -->
-                            <div id="purchase-form" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="#/purchase_order">Purchase Order</a></li>
+<!--                                        <li><a href="#/purchase_order">Purchase Order</a></li>-->
                                         <li><a href="#/purchase">Purchase</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="panel panel-default dropdown">
-                            <a data-toggle="collapse" href="#sale-form">
-                                <span class="icon fa fa-file-text-o"></span><span class="title">Sale</span>
-                            </a>
-                            <!-- Dropdown level 1 -->
-                            <div id="sale-form" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="#/sale">Sale</a></li>
+                                        <li><a href="#/pay_bill">Pay Bill</a></li>
                                     </ul>
                                 </div>
                             </div>

@@ -94,5 +94,9 @@
 <!--  Service List controllers  -->
 <script src="js/ng/app/service/controller/service_ctrl.js"></script>
 <script src="js/ng/app/service/directive/popup.js"></script>
+
+<!--  create invoice controllers  -->
+<script src="js/ng/app/create_invoice/controller/create_invoice_ctrl.js"></script>
+<script src="js/ng/app/create_invoice/directive/popup.js"></script>
     </body>
 </html>
