@@ -17,9 +17,9 @@ class Collection extends StdCollection {
 	}
 
 	public function filterById( $arg ){
-		if($arg){
+//		if($arg){
 			$this->addWhere("ct.id = '" . (int)$arg. "' ");
-		}
+//		}
 	}
 
 }

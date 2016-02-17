@@ -14,7 +14,7 @@ class RestApiDoctorList extends RestApi {
 		// start limit page
 		$col->sortById('DESC');
 		$col->filterByName($params['GET']['name']);
-		$col->filterById($params['GET']['id']);
+		$params['GET']['id'] ? $col->filterById($params['GET']['id']) : '';
 		$showDataPerPage = 10;
 		$start = $params['GET']['start'];
 		$this->applyLimit($col,

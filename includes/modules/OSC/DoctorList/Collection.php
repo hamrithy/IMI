@@ -23,9 +23,9 @@ class Collection extends StdCollection {
 	}
 
 	public function filterById( $arg ){
-		if($arg){
+//		if($arg){
 			$this->addWhere("dl.id = '" . (int)$arg. "' ");
-		}
+//		}
 	}
 
 	public function sortById($arg){
