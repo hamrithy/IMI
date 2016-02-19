@@ -27,6 +27,11 @@ class Collection extends StdCollection {
 			$this->addWhere("s.name LIKE '%" . $arg. "%' ");
 		}
 	}
+	public function filterByPhone( $arg ){
+		if($arg){
+			$this->addWhere("s.phone LIKE '%" . $arg. "%' ");
+		}
+	}
 
 	public function filterById( $arg ){
 		if($arg){
