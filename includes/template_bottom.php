@@ -32,6 +32,7 @@
 <script type="text/javascript" src="js/lib_template/ace.js"></script>
 <script type="text/javascript" src="js/lib_template/mode-html.js"></script>
 <script type="text/javascript" src="js/lib_template/theme-github.js"></script>
+<script type="text/javascript" src="js/lib_template/moment.js"></script>
 <!--<!-- Javascript -->-->
 <script type="text/javascript" src="js/lib_template/app.js"></script>
 <script type="text/javascript" src="js/lib_template/index.js"></script>

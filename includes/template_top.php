@@ -33,7 +33,7 @@ if (!tep_session_is_registered('id')) {
 <body class="flat-blue">
 <div class="app-container">
     <div class="row content-container">
-        <nav class="navbar navbar-default navbar-fixed-top navbar-top" style="z-index:99999;">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-expand-toggle">

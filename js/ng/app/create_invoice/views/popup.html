@@ -1,0 +1,91 @@
+<form data-ng-submit="save();" name="myForm">
+<div
+	class="modal fade"
+	id="create-invoice-popup"
+	data-keyboard="false"
+	data-backdrop="static"
+>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button
+					type="button"
+					class="close"
+					data-dismiss="modal"
+					data-ng-click="close();"
+				>
+					<span>&times;</span>
+				</button>
+				<h4>
+					<label>Service</label>
+				</h4>
+	      	</div>
+			<div class="modal-body">{{edit.service_name}}
+				<div class="tab-content">
+					<table class="table table-bordered">
+						<tr>
+							<td>
+								Service Name:
+							</td>
+							<td>
+								<input type="text" class="form-control" readonly data-ng-bind="edit.service_name"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Dent Color:
+							</td>
+							<td>
+								<input type="text" class="form-control" data-ng-bind="edit.dent_order"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Color:
+							</td>
+							<td>
+								<input
+									type="text"
+									class="form-control"
+									data-ng-model="edit.color"
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Price:
+							</td>
+							<td>
+								<input type="text" class="form-control" readonly data-ng-bind="edit.price"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Unit:
+							</td>
+							<td>
+								<input
+									type="text"
+									class="form-control"
+									data-ng-model="edit.unit"
+								/>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button
+					class="btn btn-default"
+					data-dismiss="modal"
+					data-ng-click="close();"
+				>
+					Close
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+
+

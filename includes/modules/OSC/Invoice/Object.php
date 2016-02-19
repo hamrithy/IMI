@@ -12,6 +12,7 @@ class Object extends DbObj {
 		
 	protected
 		$invoiceNo
+		, $invoiceDate
 		, $customerTypeId
 		, $doctorId
 		, $total
@@ -25,6 +26,8 @@ class Object extends DbObj {
 		, $deposit
 		, $balance
 		, $detail
+		, $doctorName
+		, $customerId
 	;
 
 	public function __construct( $params = array() ){
@@ -49,7 +52,10 @@ class Object extends DbObj {
 				'grand_total',
 				'deposit',
 				'balance',
-				'detail'
+				'detail',
+				'doctor_name',
+				'customer_id',
+				'invoice_date'
 			)
 		);
 
@@ -71,7 +77,10 @@ class Object extends DbObj {
 				total_discount,
 				grand_total,
 				deposit,
-				balance
+				invoice_date,
+				balance,
+				customer_id,
+				doctor_name
 			FROM
 				invoice
 			WHERE
@@ -123,6 +132,7 @@ class Object extends DbObj {
 				invoice
 			(
 				invoice_no,
+				invoice_date,
 				customer_type_id,
 				doctor_id,
 				noted,
@@ -141,6 +151,7 @@ class Object extends DbObj {
 				VALUES
 			(
 				'" . $this->getInvoiceNo() . "',
+				'" . $this->getInvoiceDate() . "',
 				'" . $this->getCustomerTypeId() . "',
 				'" . $this->getDoctorId() . "',
 				'" . $this->getNoted() . "',
@@ -160,6 +171,21 @@ class Object extends DbObj {
 		$this->setId( $this->dbInsertId() );
 	}
 
+	public function setDoctorName( $string ){
+		$this->doctorName = $string;
+	}
+
+	public function getDoctorName(){
+		return $this->doctorName;
+	}
+
+	public function setCustomerId( $string ){
+		$this->customerId = $string;
+	}
+
+	public function getCustomerId(){
+		return $this->customerId;
+	}
 
 	public function setDetail( $string ){
 		$this->detail = $string;
@@ -167,6 +193,14 @@ class Object extends DbObj {
 
 	public function getDetail(){
 		return $this->detail;
+	}
+
+	public function setInvoiceDate( $string ){
+		$this->invoiceDate = $string;
+	}
+
+	public function getInvoiceDate(){
+		return $this->invoiceDate;
 	}
 
 	public function setInvoiceNo( $string ){
